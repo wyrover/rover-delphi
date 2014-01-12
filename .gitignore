@@ -1,0 +1,8 @@
+*.dcu
+3rdparty
+temp
+product/*.dll
+product/*.exe
+
+
+
