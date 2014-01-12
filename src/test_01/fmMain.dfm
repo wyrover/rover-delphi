@@ -63,10 +63,24 @@ object MainForm: TMainForm
     ParentFont = False
     Progress = 0
   end
+  object btn1: TButton
+    Left = 216
+    Top = 344
+    Width = 75
+    Height = 25
+    Caption = 'btn1'
+    TabOrder = 0
+    OnClick = btn1Click
+  end
   object tmr1: TTimer
     Interval = 200
     OnTimer = tmr1Timer
     Left = 680
     Top = 352
+  end
+  object tooltip1: TToolTipManager
+    ToolTips = <>
+    Left = 96
+    Top = 328
   end
 end

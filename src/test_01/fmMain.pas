@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Gauges, StdCtrls, ExtCtrls;
+  Dialogs, Gauges, StdCtrls, ExtCtrls, ToolTipManager;
 
 type
   TMainForm = class(TForm)
@@ -14,6 +14,8 @@ type
     g22: TGauge2;
     g23: TGauge2;
     g24: TGauge2;
+    tooltip1: TToolTipManager;
+    btn1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btn1Click(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
@@ -40,6 +42,7 @@ end;
 procedure TMainForm.btn1Click(Sender: TObject);
 begin
   g.AddProgress(1);
+  
 end;
 
 procedure TMainForm.tmr1Timer(Sender: TObject);

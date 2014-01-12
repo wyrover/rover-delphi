@@ -11,12 +11,14 @@ procedure Register;
 implementation
 
 uses
-  rover_ctl_mycontrol, Gauges;
+  rover_ctl_mycontrol, Gauges, ToolTipManager;
 
 procedure Register;
 begin
   RegisterComponents('ROVER', [TMyControl]);
   RegisterComponents('ROVER', [TGauge2]);
+  RegisterComponents('ROVER', [TToolTipManager]);
+
 end;
 
 end.

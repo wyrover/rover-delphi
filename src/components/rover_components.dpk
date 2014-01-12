@@ -1,6 +1,7 @@
 package rover_components;
 
 {$R *.res}
+{$R 'ToolTipManager.dcr'}
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
@@ -37,6 +38,7 @@ requires
 contains
   rover_ctl_mycontrol in 'rover_ctl_mycontrol.pas',
   Gauges in 'Gauges.pas',
-  register_ctl in 'register_ctl.pas';
+  register_ctl in 'register_ctl.pas',
+  ToolTipManager in 'ToolTipManager.pas';
 
 end.
