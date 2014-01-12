@@ -9,7 +9,7 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = test_01.exe rover_components.bpl
+PROJECTS = test_01.exe rover_components.bpl test_02.exe
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
@@ -18,6 +18,9 @@ test_01.exe: test_01\test_01.dpr
   $(DCC)
 
 rover_components.bpl: components\rover_components.dpk
+  $(DCC)
+
+test_02.exe: test_02\test_02.dpr
   $(DCC)
 
 

@@ -3,6 +3,7 @@ package rover_components;
 {$R *.res}
 {$R 'ToolTipManager.dcr'}
 {$R 'RotImg.dcr'}
+{$R 'SmoothShow.dcr'}
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
@@ -42,6 +43,8 @@ contains
   register_ctl in 'register_ctl.pas',
   ToolTipManager in 'ToolTipManager.pas',
   RotImg in 'RotImg.pas',
-  RotImgReg in 'RotImgReg.pas';
+  RotImgReg in 'RotImgReg.pas',
+  SmoothShow in 'SmoothShow.pas',
+  SSReg in 'SSReg.pas';
 
 end.

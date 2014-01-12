@@ -142,3 +142,8 @@ Item0=..\..\temp
 [HistoryLists\hlOutputDirectorry]
 Count=1
 Item0=..\..\product
+[Exception Log]
+EurekaLog Version=7001
+DeleteMapAfterCompile=1
+
+
