@@ -1,0 +1,52 @@
+Cindy components V6.52
+02/01/2014 - Corrected small bug on merging condition on function ExpressionAdded() 
+
+Cindy components V6.51
+17/12/2013 - Added function IsExpressionsSameValue()
+04/12/2013 - Added ExpressionOptions property to avoid String convertion when text is not retrieved from any OCR tool. 
+02/12/2013 - Corrected small bug on pattern recognition when retrieving sorted ExpressionList by position
+
+Cindy components V6.50
+29/10/2013 - corrected small bug on pattern recognition when expression already associated to an element
+23/10/2013 - Added CloneExpression(aExpressionIndex: Integer): Integer;
+
+Cindy components V6.03
+02/10/2013 - Added support for Delphi XE5
+
+Cindy components V6.02
+23/07/2013 - cyDocER.pas - Minor improvments
+22/07/2013 - cyDERUtils.pas - Added etTextLine, etParagraph to TElementsType
+19/07/2013 - cyDocER.pas - Added property AutoMergeExpressionsRatio
+17/07/2013 - cyDocER.pas - Renamed function NewPage() to NewDocument()
+
+Cindy components V6.00
+12/04/2013 - Windows 64 bits support platform
+
+Cindy components V5.14.1
+10/04/2013 - cyDocER.pas - Added function RotatePageExpressions()
+01/03/2013 - cyDocER.pas - Replaced FExpressions: Array Of TOCRExpression with FExpressions: TList
+22/02/2013 - cyDocER.pas - GetAsDocumentOCRText and GetAsDocumentOCRTextFromRect()
+21/02/2013 - cyDocER.pas - Added ExpressionLoaded when expressions loaded from file/TStrings. 
+
+Cindy components V5.14
+15/02/2013 - Now may compile on Delphi XE2/XE3
+
+Cindy components V5.10.2
+06/11/2012 - cyDERUtils.pas - Now use of TFormatSettings instead of deprecated global variables like DecimalSeparator
+
+Cindy components V5.10
+24/10/2012 - cyDERUtils.pas - Improved speed on StringToDERCharSet() and on DERToDERNCharset()
+
+Cindy components V5.07
+11/09/2012 - cyDocER.pas - Added ShortMonthNames: TStrings property in order to set months if country recognition is different of windows system
+10/09/2012 - cyDocER.pas - Added '+' char to DERDefaultChars constant (to retrieve international phone numbers)
+24/07/2012 - cyDocER.pas - Added RecognizeElementsKeywords; and RecognizeElementsValues; that are called into RecognizeElements;
+
+Cindy components V5.06
+24/07/2012 - cyDocER.pas - Added functions GetOCRText(), GetOCRTextFromRect() and ExpressionInRect() 
+
+Cindy components V5.00
+
+27/06/2012 - TcyDocER component terminated
+03/11/2011 - Working on new component: TcyDocER on new palette "Cindy DER"
+
