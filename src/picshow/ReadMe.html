@@ -1,0 +1,267 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Author" content="Kambiz R. Khojasteh" />
+<style type="text/css">
+<!--
+body, td, th {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 10pt;
+}
+a {
+	text-decoration: none;
+	color: #800000;
+}
+a:hover {
+	border-bottom: 1px solid #ff0000;
+}
+.header {
+	color: #ffffff;
+	background-color: #660000;
+	font-size: 24pt;
+	font-weight: bold;
+	padding: 0.5em 0;
+	text-align: center;
+}
+.tags {
+	margin: 0;
+	padding: 0;
+	height: 2em;
+}
+.tags li {
+	color: #ffffff;
+	background-color: #330000;
+	margin: 2px 4px 2px 0;
+	float: left;
+	font-weight: bold;
+	display: block;
+	padding: 0.25em 1em;
+	white-space: nowrap;
+	text-align: center;
+}
+.note {
+	color: #ff0000;
+}
+h3 {
+	clear: both;
+	margin: 1.5em 0 0;
+	padding-bottom: 0.25em;
+	border-bottom: 1px solid #eeeeee;
+}
+li {
+	margin-bottom: 1em;
+}
+sup {
+	font-size: 0.8em;
+}
+ul.condensed li {
+	margin-bottom: 0;
+}
+-->
+</style>
+<title>ReadMe</title>
+</head>
+<body>
+<div class="header">PicShow &amp; DBPicShow v4.20</div>
+<p>Copyright &copy; <a href="mailto:kambiz@delphiarea.com">Kambiz R. Khojasteh</a>. All rights reserved.<br />
+Get future component updates from <a href="http://www.delphiarea.com">http://www.delphiarea.com</a>.</p>
+<ul class="tags"> 
+  <li>Delphi 3</li>
+  <li>Delphi 4</li>
+  <li>Delphi 5</li>
+  <li>Delphi 6</li>
+  <li>Delphi 7</li>
+  <li>Delphi 2005</li>
+  <li>Delphi 2006</li>
+  <li>Delphi 2007</li>
+  <li>Delphi 2009</li>
+  <li>Delphi 2010</li>
+</ul>
+<h3 id="description">DESCRIPTION</h3>
+  <p>TPicShow is an image slider control with <strong>176</strong> transitional effects in pure Delphi code. The major characteristics of TPicShow are:</p>
+  <ul class="condensed">
+    <li>Image transition can be controlled programmatically</li>
+    <li>Image can be stretched or centered in the client area of the control</li>
+    <li>Control can show a background image as centered, stretched, or tiled</li>
+    <li>Transition process can use a separated thread</li>
+    <li>New transitional effects can be easily implemented and added to the control</li>
+  </ul>
+  <p>TDBPicShow is the data-aware version of TPicShow with ability to load bitmap, jpeg, metafile, and png (Delphi 2009 and later) images from a blob field.</p>
+  <p><strong>DELPHI 3.0 USERS</strong>:<br />Two procedures in 'Graphics.pas' are missing a call to 'BitmapCanvasList.UnlockList'. This bug will cause VCL graphics functions, which have not been called from the main thread, to hang. They cannot lock 'BitmapCanvasList' because the main thread never unlocks it. Because of this bug, running PicShow in threaded mode will lead your application to deadlock.</p>
+<h3 id="installation">HOW TO INSTALL</h3>
+  <p>Add the following units into a new or existing package, and install the package:</p>
+  <ul>
+    <li>PicShow.pas</li>
+    <li>PSEffect.pas</li>
+    <li>PSReg.pas <small>(for design-time package only)</small></li>
+  </ul>
+  <p>The following packages must be added to the <strong>requires</strong> clause of your package:</p>
+  <ul>
+    <li>VCL</li>
+    <li>VCLDB</li>
+    <li>VCLJPG</li>
+    <li>RTL <small>(for Delphi 6 or higher only)</small></li>
+    <li>DBRTL <small>(for Delphi 6 or higher only)</small></li>
+    <li>DesignIDE <small>(for design-time package of Delphi 6 or higher only)</small></li>
+  </ul>
+<h3 id="properties">KEY PROPERTIES</h3>
+<ul>
+  <li><strong>AutoDisplay: Boolean </strong>(TDBPicShow only)<br />Determines whether the control automatically displays the contents of a graphic BLOB in the database control.</li>
+  <li><strong>AutoSize: Boolean</strong><br />If set to true, Automatically sizes the control to the size of the loaded image if any is loaded.</li>
+  <li><strong>BgMode: TBackgroundMode<br />TBackgroundMode = (bmNone, bmTiled, bmStretched, bmCentered)</strong><br />Determines how the control displays the background image on its client area.<br />
+    <blockquote>
+    <table width="90%" border="0" cellspacing="5" cellpadding="0" align="center">
+      <tr> 
+        <td width="15%" valign="top"><strong>bmNone</strong></td>
+        <td width="20">&nbsp;</td>
+        <td>Ignores the background image.</td>
+      </tr>
+      <tr> 
+        <td width="15%" valign="top"><strong>bmTiled</strong></td>
+        <td width="20">&nbsp;</td>
+        <td>Fills the client area of the control by the background image as tiled.</td>
+      </tr>
+      <tr> 
+        <td width="15%" valign="top"><strong>bmStretched</strong></td>
+        <td width="20">&nbsp;</td>
+        <td>Fills the client area of the control by stretching (or shrinking) the background image.</td>
+      </tr>
+      <tr> 
+        <td width="15%" valign="top"><strong>bmCentered</strong></td>
+        <td width="20">&nbsp;</td>
+        <td>Draws the background image on the center of the control's client area.</td>
+      </tr>
+    </table>
+    </blockquote>
+  </li>
+  <li><strong>BgPicture: TPicture</strong><br />Contains the background image of the control.</li>
+  <li><strong>Busy: Boolean</strong> <sup>(Read-only)</sup><br />Determines whether the control is performing an image transition.</li>
+  <li><strong>Center: Boolean</strong><br />If set to true and control's client area is larger than the loaded image, the image will be centered within the control's boundaries.</li>
+  <li><strong>Color: TColor</strong><br />Determines the background color of the control.</li>
+  <li><strong>DataField: String</strong> <sup>(TDBPicShow only)</sup><br />Specifies the field of dataset, which contains the image data.</li>
+  <li><strong>DataSource: TDataSource</strong> <sup>(TDBPicShow only)</sup><br />Links the control to a dataset.</li>
+  <li><strong>Delay: Word</strong><br />Determines the amount of delay in milliseconds before showing the next frame of the transition.</li>
+  <li><strong>Empty : Boolean</strong> <sup>(Read-only)</sup><br />Determines whether any image is loaded into the control.</li>
+  <li><strong>ExactTiming: Boolean</strong><br />When set to true, the transition of the image will take almost (0.01 * Step * Delay) milliseconds to complete. Otherwise, it may take more time for large images or slow machines.</li>
+  <li><strong>FrameColor: Color</strong><br />Determines the color of the image's border.</li>
+  <li><strong>FrameWidth: TBorderWidth</strong><br />Determines the width of the image's border.</li>
+  <li><strong>Manual: Boolean</strong><br />Determines whether the transition will be advanced manually. When this property is true, the control does not advance the transition automatically and setting the value of the <em>Progress</em> property will define the current frame of the transition. When this property is false, the control automatically advances the transition.</li>
+  <li><strong>OverDraw: Boolean</strong><br />Determines whether the control draws a new transition on the last ones. When this property is True, and current image and previous image has same dimensions, the control draws the new transition over the last one. Otherwise before starting a new transition, the control clears its screen to background.</li>
+  <li><strong>Picture: TPicture</strong> <sup>(Published in TPicShow only)</sup><br />Contains the image that the next call to <em>Execute</em> will show it.</li>
+  <li><strong>Progress: TPercent<br />TPercent = 0..100</strong><br />Determines the current state of the running transition. When <em>Busy</em> property is false, changing this property has no effect.</li>
+  <li><strong>Proportional: Boolean</strong><br />Indicates whether the image should be changed, without distortion, so that it fits the bounds of the control. When Proportional is True, images that are too large to fit in the control are scaled down (while maintaining the same aspect ratio) until they fit in the control. Images that are too small are displayed normally.</li>
+  <li><strong>Reverse: Boolean</strong><br />If set to true, automatic transitions plays in reverse.</li>
+  <li><strong>Step: Word</strong><br />Determines the amount of change in <em>Progress</em> in automatic transition.</li>
+  <li><strong>Stretch: Boolean</strong><br />If set to true, when the control's client area is larger than the loaded image, the image it will be stretched (or shrinked) to fit within the control's boundaries.</li>
+  <li><strong>Style: TShowStyle<br />TShowStyle = 0..172</strong><br />Specifies the index of the transition effect that will be used. By setting this property to zero, an <em>OnCustomDraw</em> event will be fired just before showing a new frame.</li>
+  <li><strong>StyleName: String</strong><br />Specifies the name of the transition effect that will be used.</li>
+  <li><strong>Threaded: Boolean</strong><br />If set to true, the control use a separated thread for the transition process.</li>
+</ul>
+<h3 id="methods">KEY METHODS</h3>
+<ul>
+  <li><strong>procedure Clear;</strong><br />Clears the client area of the control. Notice that calling this method does not clear the image loaded in to the <em>Picture</em> property.</li>
+  <li><strong>procedure Execute;</strong><br />Initials the transition and if <em>Manual</em> property is set false, starts it. If <em>Manual</em> property is set to true, after calling this method you can change the value of <em>Progress</em> property.</li>
+  <li><strong>function GetStyleNames(Names: TStrings): Integer ;</strong><br />Adds the name of built-in transition effects to the list specified by the Names parameter. The function returns the number of entries added to the list.</li>
+  <li><strong>procedure Stop;</strong><br />Stops the running transition.</li>
+</ul>
+<h3 id="events">KEY EVENTS</h3>
+<ul>
+  <li><strong>OnAfterNewFrame: TCustomDrawEvent<br />TCustomDrawEvent = procedure(Sender: TObject; Picture, Screen: TBitmap) of object</strong><br />This event is triggered just after creating a new frame of the transition and before drawing it on the control's client area. The Picture parameter is the original image and the Screen parameter is the content of the control's client area after the new transition frame.<br /><span class="note">When PicShow is running in threaded mode, this event occurs in the control's thread.</span></li>
+  <li><strong>OnBeforeNewFrame: TCustomDrawEvent<br />TCustomDrawEvent = procedure(Sender: TObject; Picture, Screen: TBitmap) of object</strong><br />This event is triggered just before creating a new frame of the transition. The Picture parameter is the original image and the Screen parameter is the content of the control's client area before the new transition frame.<br /><span class="note">When PicShow is running in Threaded mode, this event occurs in control's thread.</span></li>
+  <li><strong>OnChange: TNotifyEvent</strong> <sup>(TPicShow only)</sup><br />Occurs when content of <em>Picture</em> property is changed.</li>
+  <li><strong>OnStart: TCustomDrawEvent<br />TCustomDrawEvent = procedure(Sender: TObject; Picture, Screen: TBitmap) of object</strong><br />Occurs before beginning of the transition. After calling <em>Execute</em> Method, the control copies the loaded image into a bitmap and use it for transition purpose. The Picture parameter is the original image and the Screen parameter is the content of the control's client area just before any transition.When this event is triggered, you can load another image into the component for the next transition.</li>
+  <li><strong>OnStop: TNotifyEvent</strong><br />Occurs when transition is completed or aborted.</li>
+  <li><strong>OnComplete: TNotifyEvent</strong><br />Occurs when the transition effect has compeleted normally. If transition stops by calling <em>Stop</em> method, this event does not occur.</li>
+  <li><strong>OnProgress: TNotifyEvent</strong><br />Occurs just after drawing a frame of the transition on the client area of the control.</li>
+  <li><strong>OnCustomDraw: TCustomDrawEvent<br />TCustomDrawEvent = procedure(Sender: TObject; Picture, Screen: TBitmap) of object</strong><br />If <em>Style</em> property set to 0, this event is triggered when the control needs to create a new frame of the transition. The Picture parameter is the original image and the Screen parameter is the content of the control's client area, which should be updated.<br />When PicShow is running in Threaded mode, this event occurs in control's thread.</li>
+  <li><strong>OnMouseEnter: TNotifyEvent</strong><br />Occurs when the mouse pointer moves over the control.</li>
+  <li><strong>OnMouseLeave: TNotifyEvent</strong><br />Occurs when the mouse pointer moves off from over the control.</li>
+  <li><strong>OnAfterLoadPicture: TNotifyEvent</strong> <sup>(TDBPicShow only)</sup><br />Occurs when a new picture is loaded into the control.</li>
+  <li><strong>OnBeforeLoadPicture: TNotifyEvent</strong> <sup>(TDBPicShow only)</sup><br />Occurs when a new picture is being load into the control.</li>
+  <li><strong>OnGetCraphicClass: TGetGraphicClassEvent</strong> <sup>(TDBPicShow only)</sup><strong><br />TGetGraphicClassEvent = procedure(Sender: TObject; var GraphicClass: TGraphicClass) of object;</strong><br />Occurs when a new picture is about to load into the control. TDBPicShow can recognize bitmap, jpeg, metafile, and png (Delphi 2009 and later) images stored in the blob field, however it raises an exception on other graphic formats. This event gives the application an opportunity to specify the graphic class type of the data in the blob field.</li>
+</ul>
+<h3 id="limitation">LIMITATION</h3>
+  <p>The control does not support image transparency. The transparent area of the images with transparency fills with the control's color.</p>
+<h3 id="history">HISTORY</h3>
+<ul>
+  <li><strong>Version 4.20 (July 19, 2010)</strong><br />- 4 new slide out effects added (Thanks to <a href="mailto:DProgs@mail.ru">DProgs</a>).</li>
+  <li><strong>Version 4.10 (March 5, 2009)</strong><br />- In threaded mode the component uses multimedia timer instead of a separate thread, which makes having much smoother transitions. Because of that the <em>ThreadPriority</em> is no more present.</li>
+  <li><strong>Version 4.07 (January 15, 2009)</strong><br />- Improved updating display in threaded mode.</li>
+  <li><strong>Version 4.06 (November 19, 2008)</strong><br />- Support for Delphi 2009 added. As the result, TDBPicShow can natively recognize PNG images stored in the blob fields.</li>
+  <li><strong>Version 4.05 (January 27, 2007)</strong><br />- The Channel Mix effect is added.<br />- The effects are slightly reordered.<br />- Some other minor tweaks.</li>
+  <li><strong>Version 4.04 (July 1, 2006)</strong><br />- Added detection of Exif JPEG format to TDBPicShow (Thanks to <a href="mailto:kingnest@gmail.com">Nest King</a>).<br />- Fixed AV Exception of TDBPicShow occured by assigning JPEG images to the field.</li>
+  <li><strong>Version 4.03 (April 28, 2006)</strong><br />- Four new transition effects are added.</li>
+  <li><strong>Version 4.02 (April 24, 2006)</strong><br />- Some minor optimizations are applied.<br />- By adding light reflaction effect, unroll transitions are improved.<br />- Fifteen new transition effects are added.</li>
+  <li><strong>Version 4.01 (April 16, 2006)</strong><br />- Some more optimizations are applied.<br />- The new <em>GetStyleNames</em> method is added.<br />- The provided demo program is improved.</li>
+  <li><strong>Version 4.00 (April 14, 2006)</strong><br />- The code is entirely reviewed and optimized. The new code is much faster than before, so that slide show of large images is possible now.<br />- The visual effect of some transition styles are improved.<br />- Two new transition effects are added.<br />- For compatibility with Delphi's TImage control, <em>StretchFile</em> property is renamed to <em>Proportional</em>. Also, its behavior is adapted to the <em>proportional</em> property the TImage control.<br />- New <em>FrameColor</em> and <em>FrameWidth</em> properties are added.<br />- For Delphi 4 and higher, all the Delphi controls' standard properties and events are added (New Properties: BevelEdges, BevelInner, BevelOuter, BevelKind, BevelWidth, BorderWidth, Constraints, DocSite, DragKind; New Events: OnCanResize, OnConstrainedResize, OnDockDrop, OnDockOver, OnEndDock, OnStartDock, OnUnDock).</li>
+  <li><strong>Version 3.10 (November 25, 2004)</strong><br />- The new property <em>ExactTiming</em> added (Thanks to <a href="mailto:hertwig@vanzwietering.com">Hertwig van Zwietering</a>).</li>
+  <li><strong>Version 3.09 (August 12, 2004)</strong><br />- The wrong signature of bitmap files fixed (Thanks to <a href="mailto:stpav2@libero.it">Stefano P.</a>).</li>
+  <li><strong>Version 3.08 (December 6, 2003)</strong><br />- Native support for Windows Metafile (WMF) and Enhanced Metafile (EMF) image formats added to TDPicShow.</li>
+  <li><strong>Version 3.07 (November 17, 2003)</strong><br />- The pivot effects are optimized.</li>
+  <li><strong>Version 3.06 (September 8, 2003)</strong><br />- The bug in setting StyleName property fixed (Thanks to <a href="mailto:voyage_technologies@yahoo.com">Terry Bogard</a>).</li>
+  <li><strong>Version 3.05 (July 26, 2003)</strong><br />- The definition of the <em>OnStart</em> event changed. Now the event passes the original image and its underlying screen as two bitmaps to the handler.<br />- The new property <em>OverDraw</em> is added. When this property is True, the control draws the new transition over the last one, otherwise before starting a new transition it clears the screen to the background.</li>
+  <li><strong>Version 3.04 (July 12, 2003)</strong><br />- The bug on uninitialized off-screen bitmap fixed (Thanks to <a href="mailto:mgd@satelier.com.br">Miguel Gastelumendi Dargent</a>).</li>
+  <li><strong>Version 3.03 (July 6, 2003)</strong><br />- The bug of corrupted image after loading it to TDBPicShow fixed.</li>
+  <li><strong>Version 3.02 (May 29, 2003)</strong><br />- The bad result on rendering stretched images on Windows 2000 and XP fixed.</li>
+  <li><strong>Version 3.01 (May 8, 2003)</strong><br />- The code related to thread's termination optimized (Thanks to <a href="mailto:vvv@spacenet.ru">Viatcheslav V. Vassiliev</a>).</li>
+  <li><strong>Version 3.00 (February 16, 2003)</strong><br />- Transition effects moved to a separate unit.<br />- The number effects increased to 150 effects.</li>
+  <li><strong>Version 2.81.3 (January 11, 2003)</strong><br />- Known bugs of TDBPicShow fixed (Thanks to <a href="mailto:vsantamaria@enaco.es">Vicente Santamar&iacute;a V&aacute;zquez</a>).</li>
+  <li><strong>Version 2.81.2 (October 25, 2002)</strong><br />- The components prevented Windows for being shutdown. This bug fixed.</li>
+  <li><strong>Version 2.81.1 (September 28, 2002)</strong><br />- Bug on proportional scaling of the image fixed.</li>
+  <li><strong>Version 2.81 (September 26, 2002)</strong><br />- There was a memory leak on loading large images (more than 1MB) to the control, which is fixed.<br />- Race condition problem of the thread in TDBPicShow fixed.<br />- New event OnGetGraphicClass added to TDBPicShow.<br />- Algorithm of image rotation optimized.</li>
+  <li><strong>Version 2.80 (September 10, 2002)</strong><br />- Control's thread optimized. In threaded mode, control does not call Delphi Synchronize function anymore to synchronize itself with the main VCL thread. As the result, no more deadlock, faster thread termination, lower CPU usage, and smoother transitions. However, because of this change, the control cannot be compiled as non-windowed control anymore.<br />- Now changing the value of <em>Manual</em>, <em>Progress</em>, and <em>Reverse</em> properties at the last step of transition takes effect.<br />- New method <em>OnStop</em> added.</li>
+  <li><strong>Version 2.68 (Julay 9, 2002)<br />- </strong>Minor bug fix.</li>
+  <li><strong>Version 2.67 (June 5, 2002)</strong><br />- Bug on releaseing the thread fixed.</li>
+  <li><strong>Version 2.66 (May 9, 2002)</strong><br />- Memory leak bug fixed.</li>
+  <li><strong>Version 2.65 (March 8, 2002)</strong><br />- A minor bug on fade effect is fixed.</li>
+  <li><strong>Version 2.64 (February 9, 2002)</strong><br />- A little improvement in performance.</li>
+  <li><strong>Version 2.63 (January 14, 2002)</strong><br />- Bug raised on thread during the previous upgrade, fixed.<br />- New event <em>OnStart</em> added.</li>
+  <li><strong>Version 2.62 (December 29, 2001)</strong><br />- Support for Delphi 6.0 Added.<br />- Now both controls as default are windowed control. To change them from windowed control to non-windowed control, edit <em>PicShow.pas</em> and remove definition of <em>WINCONTROL_PICSHOW</em> compiler symbol.</li>
+  <li><strong>Version 2.61 (April 18, 2001)</strong><br />- New property <em>StyleName</em> added. This property is as same as <em>Style</em> property but uses name of the transition instead of its index (Thanks to <a href="mailto:gary.bond@tesco.net">Gary Bond</a>).</li>
+  <li><strong>Version 2.60 (February 21, 2001)</strong><br />- Native JPEG support added to TDBPicShow (Thanks to <a href="mailto:ken.otto@enviros.com">Ken Otto</a>)<br />- <em>OnAfterLoadPicture</em> and <em>OnBeforeLoadPicture</em> added events added to TDBPicShow (Thanks to <a href="mailto:ken.otto@enviros.com">Ken Otto</a>)<br />- A memory leak bug fixed (Thanks to <a href="mailto:ken.otto@enviros.com">Ken Otto</a>)</li>
+  <li><strong>Version 2.50 (September 7, 2000)</strong><br />- 5 new effects added; now 127 effects (Thanks to <a href="mailto:shevine@aol.com">Elliott Shevin</a> for 4 of these effects).<br />- Component editor improved.</li>
+  <li><strong>Version 2.40 (June 16, 2000)</strong><br />- TDBPicShow is data-aware version of TPicShow that added to this version of the component set.</li>
+  <li><strong>Version 2.32 (June 14, 2000)</strong><br />- Since to this version, TPicShow only was a windowed control. Now, TPicShow can be a windowed or non-windowed control depending to definition of <em>WINCONTROL_PICSHOW</em> compiler directive.</li>
+  <li><strong>Version 2.31 (June 12, 2000)</strong><br />- <em>OnBeforeNewFrame</em> and <em>OnAfterNewFrame</em> events added.</li>
+  <li><strong>Version 2.30 (February 27, 2000)</strong><br />- Memory leak bug fixed.</li>
+  <li><strong>Version 2.20 (February 6, 2000)</strong><br />- Now, all styles can be played as reverse.<br />- <em>Reverse</em> property added.<br />- Now the value of <em>Progress</em> property can be manually decremented for all styles.<br />- <em>OnMouseEnter</em> and <em>OnMouseLeave</em> events added<br />- the parameters of <em>OnCustomDraw</em> event changed.<br />- Some comments added to the source of demo application.</li>
+  <li><strong>Version 2.11 (February 1, 2000)</strong><br />- A minor bug fixed.</li>
+  <li><strong>Version 2.10 (January 31, 2000)</strong><br />- 5 new effects added; now 122 effects.<br />- Property editors placed in a separate unit (Delphi 5 consideration).<br />- Known bugs fixed.</li>
+  <li><strong>Version 2.00 (December 12, 1999)</strong><br />- Manual animation control added (Thanks to <a href="mailto:jkmclain@srcaccess.net">Jerry McLain</a> for the idea).<br />- Now all styles, play the image with an equal speed.<br />- Stretch can keep the image aspect ratio.<br />- <em>Delay</em>, <em>Manual</em>, <em>Progress</em>, <em>StretchFine</em>, and <em>ThreadPriority</em> properties added.<br />- <em>OnCustomDraw</em> and <em>OnProgress</em> events added.</li>
+  <li><strong>Version 1.50 (November 17, 1999)</strong><br />- now Delphi 3.0 is supported.<br />- Icon support added.</li>
+  <li><strong>Version 1.40 (November 16, 1999)</strong><br />- 8 new effects added; now 117 effects (Thanks to <a href="mailto:m_r_zamani@yahoo.com">M. R. Zamani</a> for these effects).<br />- All reported bugs fixed.</li>
+  <li><strong>Version 1.30 (November 11, 1999)</strong><br />- <em>BgMode</em> and <em>BgPicture</em> properties added.<br />- 32 new effects added; now 109 effects.<br />- Thread management improved.</li>
+  <li><strong>Version 1.20 (November 9, 1999)</strong><br />- <em>Empty</em> property added.<br />- <em>OnChange</em> event added.<br />- <em>Stop</em> method added.<br />- 30 new effects added; now 77 effects.<br />- all known bugs fixed.</li>
+  <li><strong>Version 1.10 (November 6, 1999)</strong><br />- <em>Busy</em> property added.<br />- Some bugs fixed.</li>
+  <li><strong>Version 1.00 (November 5, 1999)</strong><br />- Initial release with 47 effects.</li>
+</ul>
+<h3 id="acknowledgment">ACKNOWLEDGMENT</h3>
+  <p>Special thanks to:</p>
+  <ul>
+    <li>&lt;<a href="mailto:k3nx@hotmail.com">k3nx@hotmail.com</a>&gt; for help on D5 support.</li>
+    <li>Douglass Titjan &lt;<a href="mailto:support@delphipages.com">support@delphipages.com</a>&gt; for help on D5 support.</li>
+    <li>Jerry McLain &lt;<a href="mailto:jkmclain@srcaccess.net">jkmclain@srcaccess.net</a>&gt; for manual control idea.</li>
+    <li>M. R. Zamani &lt;<a href="mailto:m_r_zamani@yahoo.com">M_R_Zamani@yahoo.com</a>&gt; for adding 8 effects (110..117).</li>
+    <li>Elliott Shevin &lt;<a href="mailto:shevine@aol.com">ShevinE@aol.com</a>&gt; for adding 4 effects (123..126).</li>
+    <li>Ken Otto &lt;<a href="mailto:ken.otto@enviros.com">ken.otto@enviros.com</a>&gt; for adding native JPEG support to TDBPicShow and fixing a memory leak bug.</li>
+    <li>Gary Bond &lt;<a href="mailto:gary.bond@tesco.net">gary.bond@tesco.net</a>&gt; for name of the transitions.</li>
+    <li>Stan Drozdov &lt;<a href="mailto:stan@webdesigners.com.au">stan@webdesigners.com.au</a>&gt;</li>
+    <li>Viatcheslav V. Vassiliev &lt;<a href="mailto:vvv@spacenet.ru">vvv@spacenet.ru</a>&gt; for optimizing the thread's termination.</li>
+    <li>Miguel Gastelumendi Dargent &lt;<a href="mailto:mgd@satelier.com.br">mgd@satelier.com.br</a>&gt; for fixing the problem of uninitialized off-screen bitmap.</li>
+    <li>Terry Bogard &lt;<a href="mailto:voyage_technologies@yahoo.com">voyage_technologies@yahoo.com</a>&gt; for fixing the bug in choosing transition style by name.</li>
+    <li>Hertwig van Zwietering &lt;<a href="mailto:hertwig@vanzwietering.com">hertwig@vanzwietering.com</a>&gt; for the exact timing code.</li>
+    <li>Nest King &lt;<a href="mailto:kingnest@gmail.com">kingnest@gmail.com</a>&gt; for Exif JPEG signature.</li>
+    <li>DProgs &lt;<a href="mailto:DProgs@mail.ru">dprogs@mail.ru</a>&gt; for adding 4 effects.</li>
+  </ul>
+<h3 id="license">LICENSE</h3>
+  <p>TPicShow &amp; TDBPicShow components are freeware. You may copy components' files AS LONG AS YOU COPY ALL OF THEM. If you want to change the source code in order to improve the components' features, performance, etc. please send me the new source code so that I can have a look at it. The changed source code should contain descriptions what you have changed, and of course your name. The only thing you MAY NOT CHANGE is the ORIGINAL COPYRIGHT INFORMATION.</p>
+<h3 id="disclaimer">DISCLAIMER</h3>
+  <p>TPicShow &amp; TDBPicShow components are provided &quot;AS IS&quot; without any warranty of any kind, either express or implied. The entire risk as to the quality and performance of the software is with you. The author is NOT liable for any DAMAGES resulting from the use and misuse of the components, especially he is NOT liable for DAMAGES that were caused BY ANY VERSION WHICH HAS NOT BEEN PROGRAMMED BY THE AUTHOR HIMSELF.</p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="100%"><hr noshade="noshade" /></td>
+    <td nowrap="nowrap">&nbsp;<sup style="font-size: 6pt;">END OF DOCUMENT</sup></td>
+  </tr>
+</table>
+</body>
+</html>
