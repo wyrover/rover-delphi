@@ -1,4 +1,6 @@
 *.dcu
+*.identcache
+*.local
 3rdparty
 temp
 product/*.dll

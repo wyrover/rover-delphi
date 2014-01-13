@@ -1,0 +1,84 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{9093C610-18A1-4ACF-9D73-51E069D82E28}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="test_01\test_01.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="components\rover_components.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="test_02\test_02.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="picshow\Demo\PSDemo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="picshow\DBDemo\DBPSDemo.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="test_01">
+			<MSBuild Projects="test_01\test_01.dproj"/>
+		</Target>
+		<Target Name="test_01:Clean">
+			<MSBuild Targets="Clean" Projects="test_01\test_01.dproj"/>
+		</Target>
+		<Target Name="test_01:Make">
+			<MSBuild Targets="Make" Projects="test_01\test_01.dproj"/>
+		</Target>
+		<Target Name="rover_components">
+			<MSBuild Projects="components\rover_components.dproj"/>
+		</Target>
+		<Target Name="rover_components:Clean">
+			<MSBuild Targets="Clean" Projects="components\rover_components.dproj"/>
+		</Target>
+		<Target Name="rover_components:Make">
+			<MSBuild Targets="Make" Projects="components\rover_components.dproj"/>
+		</Target>
+		<Target Name="test_02">
+			<MSBuild Projects="test_02\test_02.dproj"/>
+		</Target>
+		<Target Name="test_02:Clean">
+			<MSBuild Targets="Clean" Projects="test_02\test_02.dproj"/>
+		</Target>
+		<Target Name="test_02:Make">
+			<MSBuild Targets="Make" Projects="test_02\test_02.dproj"/>
+		</Target>
+		<Target Name="PSDemo">
+			<MSBuild Projects="picshow\Demo\PSDemo.dproj"/>
+		</Target>
+		<Target Name="PSDemo:Clean">
+			<MSBuild Targets="Clean" Projects="picshow\Demo\PSDemo.dproj"/>
+		</Target>
+		<Target Name="PSDemo:Make">
+			<MSBuild Targets="Make" Projects="picshow\Demo\PSDemo.dproj"/>
+		</Target>
+		<Target Name="DBPSDemo">
+			<MSBuild Projects="picshow\DBDemo\DBPSDemo.dproj"/>
+		</Target>
+		<Target Name="DBPSDemo:Clean">
+			<MSBuild Targets="Clean" Projects="picshow\DBDemo\DBPSDemo.dproj"/>
+		</Target>
+		<Target Name="DBPSDemo:Make">
+			<MSBuild Targets="Make" Projects="picshow\DBDemo\DBPSDemo.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="test_01;rover_components;test_02;PSDemo;DBPSDemo"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="test_01:Clean;rover_components:Clean;test_02:Clean;PSDemo:Clean;DBPSDemo:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="test_01:Make;rover_components:Make;test_02:Make;PSDemo:Make;DBPSDemo:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
