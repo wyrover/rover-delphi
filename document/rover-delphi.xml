@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DelphiCodeToDoc_Project>
+  <TechnicalLevel>5</TechnicalLevel>
+  <ClassName>TDOCOptions</ClassName>
+  <TDOCOptions>
+    <BoolsAsChecks>TRUE</BoolsAsChecks>
+    <LaunchBrowser>TRUE</LaunchBrowser>
+    <Name>rover-delphi</Name>
+    <Title>&#x6B64;&#x5904;&#x8F93;&#x5165;&#x9879;&#x76EE;&#x6807;&#x9898;</Title>
+    <Summary>&#x8F93;&#x5165;&#x9879;&#x76EE;&#x7684;&#x5355;&#x884C;&#x7B80;&#x4ECB;</Summary>
+    <Description>
+      <Item0>&#x8F93;&#x5165;&#x9879;&#x76EE;&#x7684;&#x591A;&#x884C;&#x63CF;&#x8FF0;</Item0>
+      <Count>1</Count>
+    </Description>
+    <Author>&#x6B64;&#x5904;&#x8F93;&#x5165;&#x4F5C;&#x8005;&#x59D3;&#x540D;</Author>
+    <HTMLlink>http://dephicodetodoc.sf.net (Replace by your webpage for example)</HTMLlink>
+    <Copyright>Add your copyright informations and link here.</Copyright>
+    <RecurseDirectory>TRUE</RecurseDirectory>
+    <ConditionalDefines>
+      <Item0>MSWINDOWS</Item0>
+      <Item1>WIN32</Item1>
+      <Item2>DELPHI5_UP</Item2>
+      <Count>3</Count>
+    </ConditionalDefines>
+    <ParseImplementationSection>TRUE</ParseImplementationSection>
+    <CustomHeader>UNDER CONSTRUCTION</CustomHeader>
+    <CustomFooter>UNDER CONSTRUCTION</CustomFooter>
+    <Language>lEnglish</Language>
+    <OutputFormat>ofCHM</OutputFormat>
+    <OutputFolder>E:\rover-self-work\delphi\rover-delphi\document\</OutputFolder>
+    <VisibilitySet>
+      <mvPrivate>TRUE</mvPrivate>
+      <mvProtected>TRUE</mvProtected>
+      <mvPublic>TRUE</mvPublic>
+      <mvPublished>TRUE</mvPublished>
+      <mvAutomated>TRUE</mvAutomated>
+    </VisibilitySet>
+    <TagCommentSet>
+      <tcINLINE>TRUE</tcINLINE>
+      <tcJAVADOC>TRUE</tcJAVADOC>
+      <tcJEDI>FALSE</tcJEDI>
+      <tcXMLDoc>FALSE</tcXMLDoc>
+    </TagCommentSet>
+    <AlphaSort>TRUE</AlphaSort>
+    <WarnEmptyTAG>TRUE</WarnEmptyTAG>
+    <HideEmptyTAGSection>FALSE</HideEmptyTAGSection>
+    <HideEmptyOutputBlock>TRUE</HideEmptyOutputBlock>
+    <OutputFilteringCategory>
+      <ocUnits>TRUE</ocUnits>
+      <ocConstants>TRUE</ocConstants>
+      <ocResourcestrings>FALSE</ocResourcestrings>
+      <ocTypes>TRUE</ocTypes>
+      <ocVariables>TRUE</ocVariables>
+      <ocFunctions>TRUE</ocFunctions>
+      <ocRecords>TRUE</ocRecords>
+      <ocClasses>TRUE</ocClasses>
+      <ocFields>TRUE</ocFields>
+      <ocMethods>TRUE</ocMethods>
+      <ocProperties>TRUE</ocProperties>
+      <ocEvents>TRUE</ocEvents>
+    </OutputFilteringCategory>
+    <CssConfiguration>ccInternal</CssConfiguration>
+    <CssCustomFile/>
+    <SkipFirstTAGLine>TRUE</SkipFirstTAGLine>
+    <SkipLastTAGLine>TRUE</SkipLastTAGLine>
+    <InLineJavaDocCharPrefix>47</InLineJavaDocCharPrefix>
+    <CurlyJavaDocCharPrefix>42</CurlyJavaDocCharPrefix>
+    <BracketStarJavaDocCharPrefix>42</BracketStarJavaDocCharPrefix>
+    <FilesIncludeList>
+      <Count>1</Count>
+      <Item0>E:\rover-self-work\delphi\rover-delphi\src\test_01\</Item0>
+    </FilesIncludeList>
+    <FilesExcludeList>
+      <Count>0</Count>
+    </FilesExcludeList>
+    <AllowHtmlInDescription>FALSE</AllowHtmlInDescription>
+    <PropertyCommentFromAssessors>TRUE</PropertyCommentFromAssessors>
+    <DisplayHiddenItems>TRUE</DisplayHiddenItems>
+    <MethodCommentFromAncestor>TRUE</MethodCommentFromAncestor>
+  </TDOCOptions>
+</DelphiCodeToDoc_Project>
