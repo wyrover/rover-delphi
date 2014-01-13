@@ -4,6 +4,7 @@ package rover_components;
 {$R 'ToolTipManager.dcr'}
 {$R 'RotImg.dcr'}
 {$R 'SmoothShow.dcr'}
+{$R 'PSReg.dcr'}
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
@@ -35,16 +36,19 @@ requires
   dbrtl,
   designide,
   vclactnband,
-  vclx;
+  vclx,
+  vclimg;
 
 contains
   rover_ctl_mycontrol in 'rover_ctl_mycontrol.pas',
-  Gauges in 'Gauges.pas',
   register_ctl in 'register_ctl.pas',
   ToolTipManager in 'ToolTipManager.pas',
   RotImg in 'RotImg.pas',
-  RotImgReg in 'RotImgReg.pas',
   SmoothShow in 'SmoothShow.pas',
-  SSReg in 'SSReg.pas';
+  SSReg in 'SSReg.pas',
+  rover_gauges in 'rover_gauges.pas',
+  PicShow in 'PicShow.pas',
+  PSEffect in 'PSEffect.pas',
+  PSReg in 'PSReg.pas';
 
 end.

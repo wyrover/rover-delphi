@@ -1,14 +1,26 @@
+{*------------------------------------------------------------------------------
+  fmMain.pas
+
+  @author  wyrover
+  @comment 主窗体
+-------------------------------------------------------------------------------}          
 unit fmMain;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Gauges, StdCtrls, ExtCtrls, ToolTipManager;
+  Dialogs, rover_gauges, StdCtrls, ExtCtrls, ToolTipManager;
 
 type
+
+  {*----------------------------------------------------------------------------
+    主窗体类
+
+    asdfasdfasdf
+  -----------------------------------------------------------------------------}
   TMainForm = class(TForm)
-    g: TGauge2;
+    g: TGauge2;    /// adfadf
     tmr1: TTimer;
     g21: TGauge2;
     g22: TGauge2;

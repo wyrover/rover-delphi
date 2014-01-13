@@ -3,7 +3,8 @@ unit register_ctl;
 interface
 
 uses
-  SysUtils, Windows, Messages, Classes, Graphics, Controls, Forms, StdCtrls;
+  SysUtils, Windows, Messages, Classes, Graphics, Controls, Forms, StdCtrls,
+  DesignIntf, DesignEditors;
 
 
 procedure Register;
@@ -11,14 +12,15 @@ procedure Register;
 implementation
 
 uses
-  rover_ctl_mycontrol, Gauges, ToolTipManager;
+  TypInfo, rover_ctl_mycontrol, rover_gauges, ToolTipManager, RotImg;
 
 procedure Register;
 begin
   RegisterComponents('ROVER', [TMyControl]);
   RegisterComponents('ROVER', [TGauge2]);
   RegisterComponents('ROVER', [TToolTipManager]);
-
+  RegisterComponents('ROVER', [TRotateImage]);
+  //RegisterComponentEditor(TRotateImage, TRotateImageEditor);
 end;
 
 end.
