@@ -20,6 +20,8 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UnitSearchPath>..\..\..\delphi项目模板\3rdparty\GDIPlus;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DesignOnlyPackage>false</DesignOnlyPackage>
 			<DCC_F>false</DCC_F>
 			<GenPackage>true</GenPackage>
 			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
@@ -71,6 +73,7 @@
 			<DCCReference Include="PicShow.pas"/>
 			<DCCReference Include="PSEffect.pas"/>
 			<DCCReference Include="PSReg.pas"/>
+			<DCCReference Include="u360StyleButton.pas"/>
 			<DCCReference Include="ToolTipManager.dcr"/>
 			<DCCReference Include="RotImg.dcr"/>
 			<DCCReference Include="SmoothShow.dcr"/>
@@ -133,3 +136,9 @@
 			<ProjectFileVersion>12</ProjectFileVersion>
 		</ProjectExtensions>
 	</Project>
+
+<!-- EurekaLog First Line
+[Exception Log]
+EurekaLog Version=7001
+DeleteMapAfterCompile=1
+EurekaLog Last Line -->

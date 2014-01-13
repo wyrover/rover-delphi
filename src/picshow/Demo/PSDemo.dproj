@@ -23,7 +23,7 @@
 			<DCC_DcuOutput>..\..\..\temp</DCC_DcuOutput>
 			<DCC_ExeOutput>..\..\..\product</DCC_ExeOutput>
 			<DCC_DependencyCheckOutputName>..\..\..\product\PSDemo.exe</DCC_DependencyCheckOutputName>
-			<DCC_UnitSearchPath>..\..\picshow;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_UnitSearchPath>..\..\components;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_K>false</DCC_K>
 			<DCC_F>false</DCC_F>
 			<DCC_ImageBase>00400000</DCC_ImageBase>
@@ -109,3 +109,9 @@
 			<ProjectFileVersion>12</ProjectFileVersion>
 		</ProjectExtensions>
 	</Project>
+
+<!-- EurekaLog First Line
+[Exception Log]
+EurekaLog Version=7001
+DeleteMapAfterCompile=1
+EurekaLog Last Line -->

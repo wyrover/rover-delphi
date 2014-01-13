@@ -49,6 +49,7 @@ contains
   rover_gauges in 'rover_gauges.pas',
   PicShow in 'PicShow.pas',
   PSEffect in 'PSEffect.pas',
-  PSReg in 'PSReg.pas';
+  PSReg in 'PSReg.pas',
+  u360StyleButton in 'u360StyleButton.pas';
 
 end.

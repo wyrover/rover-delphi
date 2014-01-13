@@ -18,6 +18,9 @@
 			<Projects Include="picshow\DBDemo\DBPSDemo.dproj">
 				<Dependencies/>
 			</Projects>
+			<Projects Include="test_04\test_04.dproj">
+				<Dependencies/>
+			</Projects>
 		</ItemGroup>
 		<ProjectExtensions>
 			<Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -71,14 +74,23 @@
 		<Target Name="DBPSDemo:Make">
 			<MSBuild Targets="Make" Projects="picshow\DBDemo\DBPSDemo.dproj"/>
 		</Target>
+		<Target Name="test_04">
+			<MSBuild Projects="test_04\test_04.dproj"/>
+		</Target>
+		<Target Name="test_04:Clean">
+			<MSBuild Targets="Clean" Projects="test_04\test_04.dproj"/>
+		</Target>
+		<Target Name="test_04:Make">
+			<MSBuild Targets="Make" Projects="test_04\test_04.dproj"/>
+		</Target>
 		<Target Name="Build">
-			<CallTarget Targets="test_01;rover_components;test_02;PSDemo;DBPSDemo"/>
+			<CallTarget Targets="test_01;rover_components;test_02;PSDemo;DBPSDemo;test_04"/>
 		</Target>
 		<Target Name="Clean">
-			<CallTarget Targets="test_01:Clean;rover_components:Clean;test_02:Clean;PSDemo:Clean;DBPSDemo:Clean"/>
+			<CallTarget Targets="test_01:Clean;rover_components:Clean;test_02:Clean;PSDemo:Clean;DBPSDemo:Clean;test_04:Clean"/>
 		</Target>
 		<Target Name="Make">
-			<CallTarget Targets="test_01:Make;rover_components:Make;test_02:Make;PSDemo:Make;DBPSDemo:Make"/>
+			<CallTarget Targets="test_01:Make;rover_components:Make;test_02:Make;PSDemo:Make;DBPSDemo:Make;test_04:Make"/>
 		</Target>
 		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 	</Project>
