@@ -1269,6 +1269,7 @@ begin
   Height := Picture.Height;
   // Prepares old picture
   OldPic := TBitmap.Create;
+
   if OverDraw and not Display.Empty and
     (Width = Display.Width) and (Height = Display.Height) then
   begin
@@ -1281,6 +1282,7 @@ begin
     OldPic.Width := Width;
     OldPic.Height := Height;
   end;
+
   OldPic.PixelFormat := pf32bit;
   // Prepares current picture
   Pic := TBitmap.Create;
@@ -1288,24 +1290,29 @@ begin
   Pic.Width := Width;
   Pic.Height := Height;
   Picture.OnChange := nil;
+
   try
     Pic.Canvas.Draw(0, 0, Picture.Graphic);
   finally
     Picture.OnChange := PictureChange;
   end;
+
   Pic.PixelFormat := pf32bit;
   // Prepares display
   Display.Width := Width;
   Display.Height := Height;
   Display.PixelFormat := pf32bit;
+
   // Prepares bounding rectangles
   SetRect(PicRect, 0, 0, Width, Height);
   UpdateDisplayRect;
   Display.Assign(OldPic);
+
   if Reverse then
     fProgress := High(TPercent)
   else
     fProgress := Low(TPercent);
+
   Invalidate;
   DoStart(Pic, OldPic);
 end;

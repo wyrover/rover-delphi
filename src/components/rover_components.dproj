@@ -71,6 +71,7 @@
 			<DCCReference Include="PicShow.pas"/>
 			<DCCReference Include="PSEffect.pas"/>
 			<DCCReference Include="PSReg.pas"/>
+			<DCCReference Include="ToolTipManager.dcr"/>
 			<DCCReference Include="RotImg.dcr"/>
 			<DCCReference Include="SmoothShow.dcr"/>
 			<DCCReference Include="PSReg.dcr"/>
