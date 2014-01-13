@@ -3,8 +3,12 @@
 *.local
 3rdparty
 temp
+bpl
 product/*.dll
 product/*.exe
+document/chm
+document/html
+
 
 
 
