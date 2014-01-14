@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>JavaScript 图片滑动切换效果</title>
+<script src="SlideTrans.js"></script>
+</head>
+<body>
+<style type="text/css"> 
+.container, .container img{width:280px; height:200px;}
+.container img{border:0;vertical-align:top;}
+</style>
+<div class="container" id="idContainer">
+	<table id="idSlider" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><a href="http://www.cnblogs.com/cloudgamer/archive/2008/07/06/SlideTrans.html"><img src="http://www.cnblogs.com/images/cnblogs_com/cloudgamer/143727/o_rt_3.jpg"/></a></td>
+			<td><a href="http://www.cnblogs.com/cloudgamer/archive/2009/01/06/Tween.html"><img src="http://www.cnblogs.com/images/cnblogs_com/cloudgamer/143727/o_rt_4.jpg"/></a></td>
+			<td><a href="http://www.cnblogs.com/cloudgamer/archive/2008/07/21/ImgCropper.html"><img src="http://www.cnblogs.com/images/cnblogs_com/cloudgamer/143727/o_rt_5.jpg"/></a></td>
+		</tr>
+	</table>
+</div>
+<script>
+new SlideTrans("idContainer", "idSlider", 3, { Vertical: false }).Run();
+</script>
+<br />
+<style type="text/css">
+.container ul, .container li{list-style:none;margin:0;padding:0;}
+
+.num{ position:absolute; right:5px; bottom:5px; font:12px/1.5 tahoma, arial; height:18px;}
+.num li{
+	float: left;
+	color: #d94b01;
+	text-align: center;
+	line-height: 16px;
+	width: 16px;
+	height: 16px;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: pointer;
+	margin-left: 3px;
+	border: 1px solid #f47500;
+	background-color: #fcf2cf;
+}
+.num li.on{
+	line-height: 18px;
+	width: 18px;
+	height: 18px;
+	font-size: 14px;
+	margin-top:-2px;
+	background-color: #ff9415;
+	font-weight: bold;
+	color:#FFF;
+}
+</style>
+仿淘宝/alibaba图片切换：
+<div class="container" id="idContainer2">
+	<ul id="idSlider2">
+		<li><a href="http://www.cnblogs.com/cloudgamer/archive/2009/12/22/ImagePreview.html"> <img src="http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_song1.jpg" alt="图片上传预览" /> </a></li>
+		<li><a href="http://www.cnblogs.com/cloudgamer/archive/2009/08/10/FixedMenu.html"> <img src="http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_song2.jpg" alt="多级联动菜单" /> </a></li>
+		<li><a href="http://www.cnblogs.com/cloudgamer/archive/2009/07/07/FixedTips.html"> <img src="http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_song3.jpg" alt="浮动定位提示" /> </a></li>
+		<li><a href="http://www.cnblogs.com/cloudgamer/archive/2010/02/01/LazyLoad.html"> <img src="http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_song4.jpg" alt="数据延迟加载" /> </a></li>
+		<li><a href="http://www.cnblogs.com/cloudgamer/archive/2009/12/01/Quick_Upload.html"> <img src="http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_song5.jpg" alt="简便文件上传" /> </a></li>
+	</ul>
+	<ul class="num" id="idNum">
+	</ul>
+</div>
+<br />
+<div>
+	<input id="idAuto" type="button" value="停止" />
+	<input id="idPre" type="button" value="&lt;&lt;" />
+	<input id="idNext" type="button" value="&gt;&gt;" />
+	<select id="idTween">
+		<option value="0">默认缓动</option>
+		<option value="1">方式1</option>
+		<option value="2">方式2</option>
+	</select>
+</div>
+<script>
+
+var nums = [], timer, n = $$("idSlider2").getElementsByTagName("li").length,
+	st = new SlideTrans("idContainer2", "idSlider2", n, {
+		onStart: function(){//设置按钮样式
+			forEach(nums, function(o, i){ o.className = st.Index == i ? "on" : ""; })
+		}
+	});
+for(var i = 1; i <= n; AddNum(i++)){};
+function AddNum(i){
+	var num = $$("idNum").appendChild(document.createElement("li"));
+	num.innerHTML = i--;
+	num.onmouseover = function(){
+		timer = setTimeout(function(){ num.className = "on"; st.Auto = false; st.Run(i); }, 200);
+	}
+	num.onmouseout = function(){ clearTimeout(timer); num.className = ""; st.Auto = true; st.Run(); }
+	nums[i] = num;
+}
+st.Run();
+
+
+$$("idAuto").onclick = function(){
+	if(st.Auto){
+		st.Auto = false; st.Stop(); this.value = "自动";
+	}else{
+		st.Auto = true; st.Run(); this.value = "停止";
+	}
+}
+$$("idNext").onclick = function(){ st.Next(); }
+$$("idPre").onclick = function(){ st.Previous(); }
+$$("idTween").onchange = function(){
+	switch (parseInt(this.value)){
+		case 2 :
+			st.Tween = Tween.Bounce.easeOut; break;
+		case 1 :
+			st.Tween = Tween.Back.easeOut; break;
+		default :
+			st.Tween = Tween.Quart.easeOut;
+	}
+}
+
+</script>
+
+
+</body>
+</html>
