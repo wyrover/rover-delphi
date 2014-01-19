@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 192
-  Top = 130
+  Left = 594
+  Top = 231
   Width = 839
   Height = 551
   Caption = 'Form1'
@@ -14,10 +14,27 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object btn1: TButton
+    Left = 16
+    Top = 16
+    Width = 75
+    Height = 25
+    Caption = 'btn1'
+    TabOrder = 0
+    OnClick = btn1Click
+  end
   object tmr1: TTimer
+    Enabled = False
     Interval = 30
     OnTimer = tmr1Timer
     Left = 680
     Top = 352
+  end
+  object tmr2: TTimer
+    Enabled = False
+    Interval = 30
+    OnTimer = tmr2Timer
+    Left = 144
+    Top = 232
   end
 end

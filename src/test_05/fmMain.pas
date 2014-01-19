@@ -9,16 +9,28 @@ uses
 type
   TMainForm = class(TForm)
     tmr1: TTimer;
+    tmr2: TTimer;
+    btn1: TButton;
+    procedure btn1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
-    function Linear(t,b,c,d: Single): Single;
+    function Linear(t,b,c,d: integer): Single;
+    function Quad_easeIn(t, b, c, d: Integer): Single;
+    function Quart_easeIn(t, b , c, d: integer): Single;
 
+    procedure StartMove;
+    procedure tmr2Timer(Sender: TObject);
   private
     x: Integer;
     y: Integer;
     targetX: Integer;
     targetY: Integer;
     easing: Single;
+
+    t: integer;
+    b: integer;
+    c: integer;
+    d: integer;
   public
     { Public declarations }
   end;
@@ -29,6 +41,13 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TMainForm.btn1Click(Sender: TObject);
+begin
+  StartMove;
+end;
+
+
 
 procedure TMainForm.FormCreate(Sender: TObject);
 var
@@ -56,9 +75,39 @@ begin
   MoveWindow(Self.Handle, 0, 0, 200, 200, False);
 end;
 
-function TMainForm.Linear(t,b,c,d: Single): Single;
+function TMainForm.Linear(t,b,c,d: integer): Single;
 begin
   Result := c*t/d + b;
+end;
+
+function TMainForm.Quad_easeIn(t, b, c, d: Integer): Single;
+var
+  t2: Single;
+begin
+  t2 := t / d;
+  Result := c * t2 * t2 + b;
+end;
+
+function TMainForm.Quart_easeIn(t, b , c, d: integer): Single;
+var
+  t2: Single;
+begin
+  t2 := t / d;
+  Result := c* t2 *t2*t2*t2 + b;
+end;
+
+
+
+
+
+procedure TMainForm.StartMove;
+begin
+  t := 0;
+
+  d := 24;
+
+  tmr2.Interval := 30;
+  tmr2.Enabled := True;
 end;
 
 procedure TMainForm.tmr1Timer(Sender: TObject);
@@ -76,6 +125,19 @@ begin
   begin
     Self.x := Self.targetX;
     tmr1.Enabled := false;
+  end;
+end;
+
+procedure TMainForm.tmr2Timer(Sender: TObject);
+begin
+  if (t <= d) then
+  begin
+    // xÖá´Ó300ÒÆ¶¯µ½500
+    MoveWindow(Self.Handle, trunc(Quad_easeIn(t, 300, 500, d)), trunc(Quart_easeIn(t, 300, 500, d)), 200, 200, False);
+    Inc(t);
+  end else
+  begin
+    tmr2.Enabled := false;
   end;
 end;
 
